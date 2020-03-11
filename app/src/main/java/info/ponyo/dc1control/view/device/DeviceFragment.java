@@ -74,6 +74,17 @@ public class DeviceFragment extends Fragment implements OnRecyclerViewItemClickL
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.rv);
         srl = view.findViewById(R.id.srl);
+         new Thread(){
+            @Override
+            public void run() {
+                setRefresh();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
     }
 
     @Override
